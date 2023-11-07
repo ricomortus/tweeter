@@ -1,0 +1,27 @@
+nav {
+  display: flex;
+  height: 120px;
+  width: 100vw;
+  background: #4056A1;
+  color: #FFFFFF;
+  padding: 1.5em;
+}
+
+nav > span {
+  font-family: "Bungee";
+}
+
+nav span:nth-child(1) {
+  flex: 2;
+}
+
+.new-tweet {
+  display: flex;
+  flex-direction: column;
+}
+
+.new-tweet > i {
+  display: flex;
+  justify-content: center;
+  
+}
