@@ -1,0 +1,52 @@
+.new-tweet-box {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  
+}
+
+section> form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+#tweet-text {
+  border: 0;
+  background-color: #f4f1ec;
+  border-bottom: 4px solid #545149;
+  margin-bottom: 15px;
+}
+
+.tweet-button {
+  display: flex;
+  justify-content: space-between;
+}
+
+form > textarea {
+  resize: none;
+  max-height: 40px;
+  min-height: 40px;
+}
+
+form > label {
+  font-weight: bold;
+  font-size: x-large;
+}
+
+div > output {
+  font-family: "Bungee", sans-serif;
+  color: #545149;
+}
+
+div > button {
+  font-family: "Bungee", sans-serif;
+  background-color: #4056A1;
+  color: white;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 5px;
+  border: 0;
+}

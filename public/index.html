@@ -20,14 +20,22 @@
 
     <!-- Header CSS -->
     <link rel="stylesheet" href="/styles/header.css">
+    
+    <!-- New Tweet CSS -->
+    <link rel="stylesheet" href="/styles/new-tweet.css">
+    
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
+
+    <!-- Composer-char-counter -->
+    <script type="text/javascript" src="/scripts/Composer-char-counter.js"></script>
   </head>
 
   <body>
@@ -53,8 +61,17 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
-      <h1>Hello World</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel, veniam consectetur illum alias pariatur minima soluta dolor, architecto omnis minus dolores. Molestias pariatur nesciunt tempore! Hic, nesciunt labore. Nemo, voluptate.</p>
+      <section class="new-tweet-box">
+        <h2>Compose Tweet</h2>
+        <form action="/tweets" method="POST">
+          <label for="tweet-text">What are you humming about?</label>
+          <textarea name="text" id="tweet-text"></textarea>
+          <div class="tweet-button">
+            <button type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+      </section>
     </main>
   </body>
 </html>
