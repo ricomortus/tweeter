@@ -1,0 +1,52 @@
+.tweet{
+  margin: 50px 0px 50px 0px;
+  border: 4px solid #545149;
+}
+
+.tweet:hover {
+  box-shadow: 10px 10px 0px rgba(184, 191, 220, 0.5);
+}
+
+.tweet header {
+  height: 8px;
+  padding: 30px 15px 50px 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: #f4f1ec;
+  color: #545149;
+}
+
+header > .username {
+  color: rgb(184, 191, 220);
+  font-weight: 500;
+}
+
+.tweet p {
+  border-bottom: 4px solid #545149;
+  padding: 20px;
+  margin: 15px 10px 10px 10px;
+}
+
+.tweet footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: medium;
+  padding: 5px 25px 10px 25px;
+}
+
+.tweet-functions {
+  color: #4056A1;
+}
+
+.tweet-functions .fa-flag:hover {
+  color: #cc881b; 
+}
+
+.tweet-functions .fa-repeat:hover {
+  color: #cc881b; 
+}
+
+.tweet-functions .fa-heart:hover {
+  color: #cc881b; 
+}

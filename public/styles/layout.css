@@ -30,4 +30,5 @@ body {
   margin-right: auto;
   background-color: inherit;
   display: flex;
+  flex-direction: column;
 }
