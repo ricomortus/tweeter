@@ -17,6 +17,18 @@
   color: #545149;
 }
 
+.tweeter {
+  display: flex;
+  align-items: center;
+  margin-top: 25px;
+
+}
+
+.tweeter img {
+  height: 70px;
+  margin-right: 5px;
+}
+
 header > .username {
   color: rgb(184, 191, 220);
   font-weight: 500;
