@@ -43,11 +43,9 @@ module.exports = function(DataHelpers) {
       if (err) {
         res.status(500).json({ error: err.message });
       } else {
-        res.status(201).send();
+        res.status(201).json(tweet); // Change here: send the new tweet back
       }
     });
   });
-
- 
   return tweetsRoutes;
-}
+};

@@ -57,14 +57,15 @@ $(document).ready(function() {
     const tweetText = $(this).find('textarea').val().trim();
     const maxTweetChar = 140;
 
-    //Alert user if tweet length is over the maximum character.
-    if (tweetText.length > maxTweetChar) {
-      alert(`You are ${tweetText.length - maxTweetChar} characters over.`);
-      return;
-    }
     //Alert user if their tweet is empty
     if (tweetText === "" || tweetText === null) {
       alert('Please enter some characters to post a tweet!');
+      return;
+    }
+    
+    //Alert user if tweet length is over the maximum character.
+    if (tweetText.length > maxTweetChar) {
+      alert(`You are ${tweetText.length - maxTweetChar} characters over.`);
       return;
     }
     
@@ -76,9 +77,11 @@ $(document).ready(function() {
       type: 'POST',
       url: '/tweets',
       data: formData,
-      success: function(response) {
-        // Handle success - e.g., clear the form, append the new tweet
-        console.log('Tweet posted:', response);
+      success: function(newTweet) {
+        // Prepend the new tweet
+        $('#tweets-container').prepend(createTweetElement(newTweet));
+        // Optionally clear the form
+        $('#new-tweet-form').find('textarea').val('');
       },
       error: function(error) {
         console.error('Error posting tweet:', error);
