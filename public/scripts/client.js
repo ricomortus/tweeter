@@ -5,22 +5,22 @@
  */
 
 const createTweetElement = function(tweet) {
-  // Convert Unix timestamp to a moment object and format it to a relative time
+  // Convert Unix timestamp to a relative time string
   const formattedDate = timeago.format(new Date(tweet.created_at));
 
-  // Create the tweet HTML using template literals
-  const tweetHTML = `
+  // Create the tweet element using jQuery
+  const $tweet = $(`
     <article class="tweet">
       <header>
         <div class="tweeter">
-          <img src="${tweet.user.avatars}" alt="user avatar">
-          <span>${tweet.user.name}</span>
+          <img src="" alt="user avatar">
+          <span class="user-name"></span>
         </div>
-        <span class="username">${tweet.user.handle}</span>
+        <span class="username"></span>
       </header>
-      <p>${tweet.content.text}</p>
+      <p class="tweet-content"></p>
       <footer>
-        <span>${formattedDate}</span>
+        <span class="tweet-date">${formattedDate}</span>
         <div class="tweet-functions">
           <i class="fa-solid fa-flag"></i>
           <i class="fa-sharp fa-solid fa-repeat"></i>
@@ -28,10 +28,15 @@ const createTweetElement = function(tweet) {
         </div>
       </footer>
     </article>
-  `;
+  `);
 
-  // Convert the HTML string to a jQuery object and return it
-  return $(tweetHTML);
+  // Set the contents safely using .text() or .attr() to prevent XSS
+  $tweet.find('.tweeter img').attr('src', tweet.user.avatars);
+  $tweet.find('.user-name').text(tweet.user.name);
+  $tweet.find('.username').text(tweet.user.handle);
+  $tweet.find('.tweet-content').text(tweet.content.text);
+
+  return $tweet;
 };
 
 const renderTweets = function(tweets) {
@@ -49,30 +54,36 @@ const renderTweets = function(tweets) {
 
 
 $(document).ready(function() {
+  //hide error box
+  $('.error-box').hide();
   //Targets the #new-tweet-form in index.html and adds an event listener on submit.
   $('#new-tweet-form').submit(function(event) {
-    //prevent the default behaviour of the submit button; prevents reloading of the page
     event.preventDefault();
-    //Extract the text content from the form
     const tweetText = $(this).find('textarea').val().trim();
     const maxTweetChar = 140;
 
-    //Alert user if their tweet is empty
+    // Hide the error message at the beginning of form submission
+    $('.error-box').slideUp();
+
+    // Check if the tweet is empty
     if (tweetText === "" || tweetText === null) {
-      alert('Please enter some characters to post a tweet!');
+      $('.error-box .error-message').text('Please enter some characters to post a tweet!');
+      $('.error-box').slideDown();
       return;
     }
-    
-    //Alert user if tweet length is over the maximum character.
+
+    // Check if the tweet length is over the maximum character limit
     if (tweetText.length > maxTweetChar) {
-      alert(`You are ${tweetText.length - maxTweetChar} characters over.`);
+      $('.error-box .error-message').text(`You are ${tweetText.length - maxTweetChar} characters over.`);
+      $('.error-box').slideDown();
       return;
     }
     
     //Serialize the form to extract the string value, instead of the html tags
     const formData = $(this).serialize();
     console.log("Client side received serialized tweet:", formData);
-    //
+    
+    //READ THROUGH THIS CODE AGAIN
     $.ajax({
       type: 'POST',
       url: '/tweets',

@@ -71,6 +71,14 @@
       <!-- New tweets form-->
       <section class="new-tweet-box">
         <h2>Compose Tweet</h2>
+        <!-- To be rendered through jquery -->
+        <div class="error-box">
+          <i class="fa-solid fa-triangle-exclamation"></i>
+          <span class="error-message"></span>
+          <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+        
+
         <form action="/tweets" method="POST" id="new-tweet-form">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>

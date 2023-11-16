@@ -16,6 +16,7 @@ section> form {
   background-color: #f4f1ec;
   border-bottom: 4px solid #545149;
   margin-bottom: 15px;
+  font-size: 20px;
 }
 
 .tweet-button {
@@ -50,3 +51,15 @@ div > button {
   border-radius: 5px;
   border: 0;
 }
+
+
+.error-box {
+  margin: 10px;
+  border: red 5px solid;
+  border-radius: 5px;
+  color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
