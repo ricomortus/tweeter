@@ -4,32 +4,6 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
-// Fake data taken from initial-tweets.json
-const data = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
-
 const createTweetElement = function(tweet) {
   // Convert Unix timestamp to a moment object and format it to a relative time
   const formattedDate = timeago.format(new Date(tweet.created_at));
@@ -79,6 +53,21 @@ $(document).ready(function() {
   $('#new-tweet-form').submit(function(event) {
     //prevent the default behaviour of the submit button; prevents reloading of the page
     event.preventDefault();
+    //Extract the text content from the form
+    const tweetText = $(this).find('textarea').val().trim();
+    const maxTweetChar = 140;
+
+    //Alert user if tweet length is over the maximum character.
+    if (tweetText.length > maxTweetChar) {
+      alert(`You are ${tweetText.length - maxTweetChar} characters over.`);
+      return;
+    }
+    //Alert user if their tweet is empty
+    if (tweetText === "" || tweetText === null) {
+      alert('Please enter some characters to post a tweet!');
+      return;
+    }
+    
     //Serialize the form to extract the string value, instead of the html tags
     const formData = $(this).serialize();
     console.log("Client side received serialized tweet:", formData);
