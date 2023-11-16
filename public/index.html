@@ -40,6 +40,8 @@
     <!-- Composer-char-counter -->
     <script type="text/javascript" src="/scripts/Composer-char-counter.js"></script>
 
+    <!-- time ago -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/timeago.js/4.0.2/timeago.min.js" integrity="sha512-SVDh1zH5N9ChofSlNAK43lcNS7lWze6DTVx1JCXH1Tmno+0/1jMpdbR8YDgDUfcUrPp1xyE53G42GFrcM0CMVg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     
   </head>
 
@@ -66,9 +68,10 @@
 
     <!-- Page-specific (main) content here -->
     <main class="container">
+      <!-- New tweets form-->
       <section class="new-tweet-box">
         <h2>Compose Tweet</h2>
-        <form action="/tweets" method="POST">
+        <form action="/tweets" method="POST" id="new-tweet-form">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
           <div class="tweet-button">
@@ -77,14 +80,14 @@
           </div>
         </form>
       </section>
+      <!-- Container for appending new tweets -->
       <section id="tweets-container">
       </section>
     </main>
 
-    <!-- date formatting-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    
 
    <!-- jQuery -->
-   <script src="https://code.jquery.com/jquery-3.7.1.slim.js" integrity="sha256-UgvvN8vBkgO0luPSUl2s8TIlOSYRoGFAX4jlCIm9Adc=" crossorigin="anonymous"></script>
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   </body>
 </html>

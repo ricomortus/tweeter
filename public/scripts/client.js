@@ -32,7 +32,7 @@ const data = [
 
 const createTweetElement = function(tweet) {
   // Convert Unix timestamp to a moment object and format it to a relative time
-  const formattedDate = moment(tweet.created_at).fromNow();
+  const formattedDate = timeago.format(new Date(tweet.created_at));
 
   // Create the tweet HTML using template literals
   const tweetHTML = `
@@ -60,11 +60,6 @@ const createTweetElement = function(tweet) {
   return $(tweetHTML);
 };
 
-
-
-
-// Function definition outside of the document.ready
-
 const renderTweets = function(tweets) {
   // Create an empty jQuery object
   let $allTweets = $();
@@ -79,7 +74,42 @@ const renderTweets = function(tweets) {
 };
 
 
-// Document ready block
 $(document).ready(function() {
-  renderTweets(data); // Call the function when the DOM is ready
+  //Targets the #new-tweet-form in index.html and adds an event listener on submit.
+  $('#new-tweet-form').submit(function(event) {
+    //prevent the default behaviour of the submit button; prevents reloading of the page
+    event.preventDefault();
+    //Serialize the form to extract the string value, instead of the html tags
+    const formData = $(this).serialize();
+    console.log("Client side received serialized tweet:", formData);
+    //
+    $.ajax({
+      type: 'POST',
+      url: '/tweets',
+      data: formData,
+      success: function(response) {
+        // Handle success - e.g., clear the form, append the new tweet
+        console.log('Tweet posted:', response);
+      },
+      error: function(error) {
+        console.error('Error posting tweet:', error);
+      }
+    });
+  });
+
+  //Define loadTweets function to fetch tweets from /tweets page using jquery
+  const loadTweets = function() {
+    $.ajax({
+      type: 'GET',
+      url: '/tweets',
+      success: function(tweets) {
+        renderTweets(tweets);
+      },
+      error: function(error) {
+        console.log('Error fetching tweets:', error);
+      }
+    });
+  };
+  loadTweets();
 });
+
