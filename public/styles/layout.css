@@ -32,3 +32,32 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+@media screen and (min-width: 1024px) {
+  .hero {
+    display: flex;
+    padding-top: 200px;
+    margin-right: 100px;
+  }
+
+  .hero header {
+    width: 50%;
+    margin-right: 200px;
+    margin-left: 100px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .container {
+    margin-top: 50px;
+  }
+
+  body nav {
+    background-color: #cc881b;
+    background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
+  }
+
+  .hero {
+    padding-top: 50px;
+  }
+}

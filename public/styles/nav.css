@@ -26,3 +26,6 @@ nav span:nth-child(1) {
   justify-content: center;
 }
 
+.new-tweet i {
+  color: red;
+}

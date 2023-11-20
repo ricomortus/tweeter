@@ -55,43 +55,44 @@
       </div>
     </nav>
 
-    <header>
-      <div>
-          <img src="/images/profile-hex.png"> 
-      </div>
-      <br>
-      <div>
-          <h2>Rico Chow</h2>
-      </div>
-  </header>
-  
-
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <!-- New tweets form-->
-      <section class="new-tweet-box">
-        <h2>Compose Tweet</h2>
-        <!-- To be rendered through jquery -->
-        <div class="error-box">
-          <i class="fa-solid fa-triangle-exclamation"></i>
-          <span class="error-message"></span>
-          <i class="fa-solid fa-triangle-exclamation"></i>
+    
+    <div class="hero">
+      <header>
+        <div>
+            <img src="/images/profile-hex.png"> 
         </div>
-        
-
-        <form action="/tweets" method="POST" id="new-tweet-form">
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea name="text" id="tweet-text"></textarea>
-          <div class="tweet-button">
-            <button type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
+        <br>
+        <div>
+            <h2>Rico Chow</h2>
+        </div>
+    </header>
+  
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        <!-- New tweets form-->
+        <section class="new-tweet-box">
+          <!-- To be rendered through jquery -->
+          <div class="error-box">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <span class="error-message"></span>
+            <i class="fa-solid fa-triangle-exclamation"></i>
           </div>
-        </form>
-      </section>
-      <!-- Container for appending new tweets -->
-      <section id="tweets-container">
-      </section>
-    </main>
+          
+  
+          <form action="/tweets" method="POST" id="new-tweet-form">
+            <label for="tweet-text">What are you humming about?</label>
+            <textarea name="text" id="tweet-text"></textarea>
+            <div class="tweet-button">
+              <button type="submit">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+          </form>
+        </section>
+        <!-- Container for appending new tweets -->
+        <section id="tweets-container">
+        </section>
+      </main>
+    </div>
 
     
 

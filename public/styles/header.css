@@ -1,5 +1,5 @@
 header {
-  height: 450px;
+  height: 400px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -8,7 +8,7 @@ header {
   background-color: #cc881b;
   background-image: url("https://www.transparenttextures.com/patterns/45-degree-fabric-light.png");
   color: #FFFFFF;
-  padding-top: 100px;
+  
 }
 
 header > div, header > div > h2, header > div > img {
