@@ -16,7 +16,8 @@ section> form {
   background-color: #f4f1ec;
   border-bottom: 4px solid #545149;
   margin-bottom: 15px;
-  font-size: 20px;
+  font-size: 16.5px;
+  overflow-wrap: break-word;
 }
 
 .tweet-button {

@@ -93,6 +93,8 @@ $(document).ready(function() {
         $('#tweets-container').prepend(createTweetElement(newTweet));
         // Optionally clear the form
         $('#new-tweet-form').find('textarea').val('');
+        //Reset counter to 0
+        $('#new-tweet-form').find('.counter').text('140');
       },
       error: function(error) {
         console.error('Error posting tweet:', error);
