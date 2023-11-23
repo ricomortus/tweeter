@@ -15,13 +15,15 @@
   justify-content: space-between;
   background: #f4f1ec;
   color: #545149;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
 }
 
 .tweeter {
   display: flex;
   align-items: center;
   margin-top: 25px;
-
 }
 
 .tweeter img {

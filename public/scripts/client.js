@@ -103,11 +103,14 @@ $(document).ready(function() {
   });
 
   //Define loadTweets function to fetch tweets from /tweets page using jquery
+  //Define loadTweets function to fetch tweets from /tweets page using jquery
   const loadTweets = function() {
     $.ajax({
       type: 'GET',
       url: '/tweets',
       success: function(tweets) {
+        // Reverse the order of tweets to display newest first
+        tweets.reverse();
         renderTweets(tweets);
       },
       error: function(error) {
